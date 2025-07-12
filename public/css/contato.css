@@ -1,0 +1,306 @@
+/* =================================================================
+   DEVBURGER - PÁGINA DE CONTATO
+   Estilo tech cyber-punk para formulário de contato
+   ================================================================= */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =================================================================
+   CORPO DA PÁGINA
+   Fundo com gradiente e números binários
+   ================================================================= */
+body {
+    background: linear-gradient(135deg, #1a0033, #000033, #001a33, #330066); /* Gradiente roxo para azul escuro */
+    min-height: 100vh; /* Altura mínima da tela */
+    font-family: 'Courier New', monospace; /* Fonte de programador */
+    color: #cccccc; /* Texto cinza claro */
+    position: relative;
+    overflow-x: hidden; /* Esconde scroll horizontal */
+}
+
+/* =================================================================
+   CABEÇALHO (HEADER)
+   Estilo do topo da página
+   ================================================================= */
+header {
+    text-align: center; /* Centraliza texto */
+    padding: 40px 0; /* Espaço interno vertical */
+    margin-bottom: 40px; /* Espaço abaixo */
+    background: rgba(26, 0, 51, 0.9); /* Fundo roxo semi-transparente */
+    border-radius: 15px; /* Cantos arredondados */
+    border: 2px solid rgba(0, 255, 0, 0.3); /* Borda verde transparente */
+    color: #00ff00; /* Texto verde neon */
+    box-shadow: 0 10px 25px rgba(153, 0, 255, 0.3); /* Sombra roxa */
+    position: relative; /* Para elementos filhos */
+    margin: 20px auto; /* Centraliza */
+    width: 90%;
+    max-width: 900px;
+    backdrop-filter: blur(10px); /* Efeito blur */
+}
+
+/* Ícone de fórum no fundo do header */
+header::before {
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px; /* Tamanho da imagem */
+    height: 120px; /* Tamanho da imagem */
+    background-image: url('/images/envelope.png'); /* Sua imagem de fórum */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3;
+    filter: 
+        contrast(1.5)
+        saturate(2)
+        brightness(1.3)
+        hue-rotate(120deg) /* Verde neon */
+        drop-shadow(0 0 20px #00ff00)
+        drop-shadow(0 0 40px rgba(0, 255, 0, 0.5));
+    z-index: 0;
+    animation: forumGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes forumGlow {
+    0% { 
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+        filter: 
+            contrast(1.5)
+            saturate(2)
+            brightness(1.3)
+            hue-rotate(120deg)
+            drop-shadow(0 0 20px #00ff00);
+    }
+    100% { 
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1.05);
+        filter: 
+            contrast(1.5)
+            saturate(2)
+            brightness(1.5)
+            hue-rotate(120deg)
+            drop-shadow(0 0 30px #00ff00)
+            drop-shadow(0 0 50px rgba(0, 255, 0, 0.7));
+    }
+}
+
+/* =================================================================
+   TÍTULOS PRINCIPAIS (H1)
+   ================================================================= */
+header h1 {
+    font-size: 2.8em;
+    font-weight: 800;
+    color: #00ff00; /* Verde neon */
+    text-shadow: 
+        0 0 10px rgba(0, 255, 0, 0.8),
+        0 0 20px rgba(0, 255, 0, 0.6),
+        2px 2px 4px rgba(0,0,0,0.8);
+    font-family: 'Courier New', monospace;
+    margin: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* =================================================================
+   NAVEGAÇÃO DO HEADER
+   ================================================================= */
+header nav {
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #00ff00; /* Verde neon */
+    font-weight: bold;
+    padding: 12px 25px;
+    background: rgba(26, 0, 51, 0.8);
+    border-radius: 25px;
+    border: 2px solid rgba(0, 255, 0, 0.5);
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+header nav a:hover {
+    background: rgba(153, 0, 255, 0.4);
+    border-color: #9900ff;
+    color: #9900ff;
+    text-shadow: 0 0 10px rgba(153, 0, 255, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(153, 0, 255, 0.4);
+}
+
+/* =================================================================
+   CONTAINER PRINCIPAL (MAIN)
+   ================================================================= */
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 30px;
+    background: rgba(26, 0, 51, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 255, 0, 0.2), inset 0 0 20px rgba(153, 0, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(0, 255, 0, 0.3);
+    position: relative;
+}
+
+/* Parágrafo de introdução */
+main p {
+    color: #cccccc;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+}
+
+/* =================================================================
+   FORMULÁRIO DE CONTATO
+   ================================================================= */
+form {
+    background: linear-gradient(135deg, rgba(153, 0, 255, 0.2), rgba(0, 77, 0, 0.3));
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 255, 0, 0.4);
+    box-shadow: 0 15px 35px rgba(153, 0, 255, 0.3);
+    position: relative;
+}
+
+/* Labels dos campos */
+form label {
+    color: #00ff00; /* Verde neon */
+    font-weight: bold;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Campos de entrada */
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 255, 0, 0.3);
+    border-radius: 10px;
+    color: #cccccc;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito focus nos campos */
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #9900ff; /* Borda roxa no foco */
+    background: rgba(153, 0, 255, 0.1);
+    box-shadow: 
+        inset 0 2px 5px rgba(0, 0, 0, 0.3),
+        0 0 15px rgba(153, 0, 255, 0.5);
+    color: #ffffff;
+}
+
+/* Placeholder */
+form input::placeholder,
+form textarea::placeholder {
+    color: rgba(204, 204, 204, 0.6);
+    font-style: italic;
+}
+
+/* Textarea específico */
+form textarea {
+    min-height: 120px;
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+}
+
+/* Divisões do formulário */
+form div {
+    margin-bottom: 20px;
+}
+
+/* Remove os <br> desnecessários via CSS */
+form br {
+    display: none;
+}
+
+/* =================================================================
+   BOTÃO DE ENVIO
+   Igual aos links de navegação
+   ================================================================= */
+form button {
+    text-decoration: none;
+    color: #00ff00;
+    font-weight: bold;
+    padding: 12px 25px;
+    background: rgba(26, 0, 51, 0.8);
+    border-radius: 25px;
+    border: 2px solid rgba(0, 255, 0, 0.5);
+    transition: all 0.3s ease;
+    display: block;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    font-size: 1em;
+    margin: 30px auto 0 auto;
+    width: fit-content;
+}
+
+form button:hover {
+    background: rgba(153, 0, 255, 0.4);
+    border-color: #9900ff;
+    color: #9900ff;
+    text-shadow: 0 0 10px rgba(153, 0, 255, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(153, 0, 255, 0.4);
+}
+
+form button:active {
+    transform: translateY(-1px);
+}
+
+/* =================================================================
+   RESPONSIVIDADE
+   ================================================================= */
+@media (max-width: 768px) {
+    main, header {
+        width: 95%;
+        padding: 20px;
+        margin: 10px auto;
+    }
+    
+    header h1 {
+        font-size: 2.2em;
+    }
+    
+    header nav a {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    form {
+        padding: 20px;
+    }
+    
+    body::before {
+        font-size: 8px;
+    }
+}

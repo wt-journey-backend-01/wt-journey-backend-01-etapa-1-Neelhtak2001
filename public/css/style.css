@@ -1,0 +1,486 @@
+/* =================================================================
+   RESET E CONFIGURAÇÕES BÁSICAS
+   Remove margens/padding padrão e define box-sizing para todos elementos
+   ================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+}
+
+/* =================================================================
+   ESTILO DO BODY - CONFIGURAÇÃO PRINCIPAL DA PÁGINA
+   Define fonte, cores, gradiente de fundo e configurações gerais
+   ================================================================= */
+body {
+    font-family: 'Courier New', monospace; /* Fonte de programador */
+    background: linear-gradient(135deg, #1a0033 0%, #330066 50%, #004d00 100%); /* Gradiente roxo para verde */
+    color: #00ff00; /* Cor principal verde neon */
+    min-height: 100vh; /* Altura mínima = altura da tela */
+    line-height: 1.6; /* Espaçamento entre linhas */
+    position: relative; /* Para posicionamento de elementos filhos */
+    overflow-x: hidden; /* Esconde scroll horizontal */
+}
+
+
+/* =================================================================
+   CONTAINER PRINCIPAL (MAIN)
+   Caixa principal que contém todo o conteúdo da página
+   ================================================================= */
+main {
+    width: 90%; /* 90% da largura da tela */
+    max-width: 900px; /* Largura máxima */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    padding: 30px; /* Espaço interno */
+    background: rgba(26, 0, 51, 0.9); /* Fundo roxo semi-transparente */
+    border-radius: 20px; /* Cantos arredondados */
+    box-shadow: 0 20px 40px rgba(0, 255, 0, 0.2), inset 0 0 20px rgba(153, 0, 255, 0.1); /* Sombras externa e interna */
+    backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+    border: 2px solid rgba(0, 255, 0, 0.3); /* Borda verde transparente */
+    position: relative; /* Para posicionamento de elementos filhos */
+}
+
+/* Remove as engrenagens girando */
+main::before,
+main::after {
+    display: none;
+}
+
+/* =================================================================
+   CABEÇALHO (HEADER)
+   Estilo do topo da página com título e navegação
+   ================================================================= */
+header {
+    text-align: center; /* Centraliza texto */
+    padding: 40px 0; /* Espaço interno vertical */
+    margin-bottom: 40px; /* Espaço abaixo */
+    background: rgba(26, 0, 51, 0.9); /* Mesmo fundo do main */
+    border-radius: 15px; /* Cantos arredondados */
+    border: 2px solid rgba(0, 255, 0, 0.3); /* Mesma borda verde do main */
+    color: #00ff00; /* Texto verde neon */
+    box-shadow: 0 10px 25px rgba(153, 0, 255, 0.3); /* Sombra roxa */
+    position: relative; /* Para elementos filhos */
+    overflow: hidden; /* Esconde conteúdo que sai da área */
+    backdrop-filter: blur(10px); /* Mesmo efeito blur do main */
+}
+
+/* Círculo de fundo com hambúrguer gigante estilizado */
+header::before {
+    content: '';
+    position: absolute; /* Posicionamento absoluto */
+    top: 50%; /* Centro vertical */
+    left: 50%; /* Centro horizontal */
+    transform: translate(-50%, -50%); /* Centraliza perfeitamente */
+    width: 180px; /* Tamanho bem maior */
+    height: 180px; /* Tamanho bem maior */
+    background: 
+        radial-gradient(circle, rgba(0, 255, 0, 0.2) 0%, rgba(153, 0, 255, 0.1) 70%, transparent 100%), /* Gradiente radial */
+        url('/images/burger.png'); /* Sua imagem */
+    background-size: 
+        100% 100%, /* Gradiente ocupa tudo */
+        120px 120px; /* Imagem menor que o círculo */
+    background-position: center; /* Centraliza tudo */
+    background-repeat: no-repeat; /* Não repete */
+    border-radius: 50%; /* Círculo perfeito */
+    border: 3px solid rgba(0, 255, 0, 0.4); /* Borda verde brilhante */
+    opacity: 0.4; /* Semi-transparente para ficar atrás */
+    filter: 
+        contrast(1.5) /* Aumenta contraste */
+        saturate(2) /* Aumenta saturação */
+        brightness(1.3) /* Aumenta brilho */
+        drop-shadow(0 0 25px #00ff00) /* Brilho verde forte */
+        drop-shadow(0 0 50px rgba(153, 0, 255, 0.6)); /* Brilho roxo */
+    z-index: 0; /* Atrás do texto */
+    animation: backgroundPulse 4s ease-in-out infinite alternate; /* Animação mais lenta */
+    box-shadow: 
+        0 0 30px rgba(0, 255, 0, 0.5), /* Brilho interno verde */
+        inset 0 0 30px rgba(153, 0, 255, 0.2); /* Brilho interno roxo */
+}
+
+/* Animação mais suave do círculo com hambúrguer */
+@keyframes backgroundPulse {
+    0% { 
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+        border-color: rgba(0, 255, 0, 0.4);
+        box-shadow: 
+            0 0 30px rgba(0, 255, 0, 0.5),
+            inset 0 0 30px rgba(153, 0, 255, 0.2);
+    }
+    100% { 
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1.05);
+        border-color: rgba(153, 0, 255, 0.6);
+        box-shadow: 
+            0 0 50px rgba(0, 255, 0, 0.7),
+            0 0 80px rgba(153, 0, 255, 0.4),
+            inset 0 0 40px rgba(0, 255, 0, 0.3);
+    }
+}
+
+/* =================================================================
+   TÍTULOS PRINCIPAIS (H1)
+   Estilo do título principal da página
+   ================================================================= */
+header h1 {
+    font-size: 2.8em; /* Tamanho grande */
+    font-weight: 800; /* Peso da fonte bem grosso */
+    color: #00ff00; /* Verde neon */
+    text-shadow: 
+        0 0 10px rgba(0, 255, 0, 0.8),
+        0 0 20px rgba(0, 255, 0, 0.6),
+        2px 2px 4px rgba(0,0,0,0.8); /* Sombra mais forte para destacar do fundo */
+    font-family: 'Courier New', monospace; /* Fonte de programador */
+    margin: 20px 0; /* Margens verticais */
+    position: relative; /* Para ficar acima do hambúrguer */
+    z-index: 2; /* Acima do hambúrguer de fundo */
+}
+
+/* =================================================================
+   NAVEGAÇÃO DO HEADER
+   Links de navegação no topo
+   ================================================================= */
+header nav {
+    margin-top: 20px; /* Espaço acima */
+    position: relative; /* Para ficar acima do background */
+    z-index: 2; /* Acima do hambúrguer de fundo */
+}
+
+header nav a {
+    text-decoration: none; /* Remove sublinhado */
+    color: #00ff00; /* Verde neon */
+    margin: 0 15px; /* Espaço entre links */
+    font-weight: bold; /* Texto em negrito */
+    padding: 12px 25px; /* Espaço interno */
+    background: rgba(26, 0, 51, 0.8); /* Fundo mais opaco */
+    border-radius: 25px; /* Bordas muito arredondadas */
+    border: 2px solid rgba(0, 255, 0, 0.5); /* Borda verde transparente */
+    transition: all 0.3s ease; /* Transição suave em todas propriedades */
+    display: inline-block; /* Permite aplicar padding e margin */
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Brilho verde */
+    backdrop-filter: blur(5px); /* Desfoque para destacar do fundo */
+}
+
+/* Efeito hover nos links de navegação */
+header nav a:hover {
+    background: rgba(153, 0, 255, 0.4); /* Fundo roxo transparente */
+    border-color: #9900ff; /* Borda roxa */
+    color: #9900ff; /* Texto roxo */
+    text-shadow: 0 0 10px rgba(153, 0, 255, 0.8); /* Brilho roxo */
+    transform: translateY(-3px); /* Move para cima */
+    box-shadow: 0 5px 15px rgba(153, 0, 255, 0.4); /* Sombra roxa */
+}
+
+/* =================================================================
+   NAVEGAÇÃO DO HEADER - ADICIONA CIRCUITO NO CANTO
+   Links de navegação no topo
+   ================================================================= */
+header nav {
+    margin-top: 20px; /* Espaço acima */
+    position: relative; /* Para ficar acima do background e adicionar pseudo-elemento */
+    z-index: 2; /* Acima do hambúrguer de fundo */
+}
+
+/* =================================================================
+   TÍTULOS DE SEÇÃO (H2)
+   Estilo dos títulos das seções da página
+   ================================================================= */
+h2 {
+    color: #00ff00; /* Verde neon */
+    text-align: center; /* Centralizado */
+    font-size: 2.2em; /* Tamanho grande */
+    margin: 50px 0 30px 0; /* Margens: topo, direita, baixo, esquerda */
+    position: relative; /* Para pseudo-elementos */
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.8); /* Brilho verde */
+}
+
+/* =================================================================
+   TÍTULOS DE ITEM (H3) - HAMBÚRGUERES MENORES ESTILIZADOS
+   Estilo dos nomes dos lanches com ícones verdes
+   ================================================================= */
+h3 {
+    color: #9900ff; /* Roxo */
+    font-size: 1.6em; /* Tamanho médio */
+    margin-bottom: 15px; /* Espaço abaixo */
+    display: flex; /* Layout flexível */
+    align-items: center; /* Alinha verticalmente no centro */
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(153, 0, 255, 0.6); /* Brilho roxo */
+}
+
+/* Hambúrgueres menores com círculo também */
+h3::before {
+    content: '';
+    width: 40px; /* Ligeiramente maior */
+    height: 40px; /* Ligeiramente maior */
+    background: 
+        radial-gradient(circle, rgba(0, 255, 0, 0.3) 0%, rgba(153, 0, 255, 0.1) 70%, transparent 100%), /* Gradiente radial */
+        url('/images/burger.png'); /* Sua imagem */
+    background-size: 
+        100% 100%, /* Gradiente ocupa tudo */
+        28px 28px; /* Imagem menor que o círculo */
+    background-position: center; /* Centraliza tudo */
+    background-repeat: no-repeat; /* Não repete */
+    border-radius: 50%; /* Círculo perfeito */
+    border: 2px solid rgba(0, 255, 0, 0.5); /* Borda verde */
+    margin-right: 12px; /* Espaço entre ícone e texto */
+    filter: 
+        contrast(1.4) /* Aumenta contraste */
+        saturate(1.8) /* Aumenta saturação */
+        brightness(1.2) /* Aumenta brilho */
+        drop-shadow(0 0 8px #00ff00); /* Brilho verde */
+    display: inline-block; /* Para aplicar filtros */
+    animation: subtlePulse 3s ease-in-out infinite alternate; /* Animação mais sutil */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4); /* Brilho externo */
+}
+
+/* Animação mais sutil para os hambúrgueres menores */
+@keyframes subtlePulse {
+    0% { 
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+        border-color: rgba(0, 255, 0, 0.5);
+    }
+    100% { 
+        box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+        border-color: rgba(153, 0, 255, 0.5);
+    }
+}
+
+/* =================================================================
+   ITENS DO CARDÁPIO
+   Estilo das caixas que contêm cada lanche
+   ================================================================= */
+.menu-item {
+    background: linear-gradient(135deg, rgba(26, 0, 51, 0.8), rgba(0, 77, 0, 0.6)); /* Gradiente roxo para verde */
+    padding: 25px; /* Espaço interno */
+    margin: 25px 0; /* Espaço vertical entre itens */
+    border-radius: 15px; /* Cantos arredondados */
+    border: 2px solid rgba(0, 255, 0, 0.3); /* Borda verde transparente */
+    box-shadow: 0 8px 20px rgba(153, 0, 255, 0.2); /* Sombra roxa */
+    transition: all 0.3s ease; /* Transição suave */
+    position: relative; /* Para elementos filhos */
+    overflow: hidden; /* Esconde conteúdo que sai */
+}
+
+
+/* =================================================================
+   PARÁGRAFOS DOS ITENS
+   Estilo do texto descritivo dos lanches
+   ================================================================= */
+.menu-item p {
+    margin-top: 15px; /* Espaço acima */
+    font-size: 1.1em; /* Tamanho ligeiramente maior */
+    color: #cccccc; /* Cinza claro */
+    font-family: 'Courier New', monospace;
+}
+
+/* Destaque para palavras importantes */
+.menu-item strong {
+    color: #00ff00; /* Verde neon */
+    font-weight: 700; /* Muito negrito */
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Brilho verde */
+}
+
+/* =================================================================
+   LINHA DIVISÓRIA (HR)
+   Linha colorida que separa seções
+   ================================================================= */
+hr {
+    border: 0; /* Remove borda padrão */
+    height: 3px; /* Altura da linha */
+    background: linear-gradient(90deg, #9900ff, #00ff00, #9900ff); /* Gradiente horizontal */
+    margin: 50px 0; /* Espaço vertical */
+    border-radius: 2px; /* Cantos levemente arredondados */
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Brilho verde */
+}
+
+/* =================================================================
+   FORMULÁRIO
+   Estilo da caixa do formulário
+   ================================================================= */
+form {
+    background: linear-gradient(135deg, rgba(153, 0, 255, 0.2), rgba(0, 77, 0, 0.3)); /* Gradiente transparente */
+    padding: 30px; /* Espaço interno */
+    border-radius: 20px; /* Cantos bem arredondados */
+    border: 2px solid rgba(0, 255, 0, 0.4); /* Borda verde transparente */
+    box-shadow: 0 15px 35px rgba(153, 0, 255, 0.3); /* Sombra roxa */
+    position: relative; /* Para elementos filhos */
+}
+
+/* Remove emoji do formulário */
+form::before {
+    display: none;
+}
+
+/* =================================================================
+   LABELS DO FORMULÁRIO
+   Estilo dos rótulos dos campos
+   ================================================================= */
+form label {
+    font-weight: bold; /* Negrito */
+    display: block; /* Ocupa linha inteira */
+    margin-bottom: 10px; /* Espaço abaixo */
+    color: #00ff00; /* Verde neon */
+    font-size: 1.2em; /* Tamanho maior */
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Brilho verde */
+}
+
+/* =================================================================
+   CAMPOS DE INPUT E TEXTAREA
+   Estilo dos campos onde o usuário digita
+   ================================================================= */
+form input[type="text"],
+form textarea {
+    width: 100%; /* Largura total */
+    padding: 15px; /* Espaço interno */
+    margin-bottom: 25px; /* Espaço abaixo */
+    border-radius: 10px; /* Cantos arredondados */
+    border: 2px solid rgba(0, 255, 0, 0.3); /* Borda verde transparente */
+    font-size: 1em; /* Tamanho normal */
+    background: rgba(26, 0, 51, 0.8); /* Fundo roxo escuro transparente */
+    color: #00ff00; /* Texto verde */
+    font-family: 'Courier New', monospace;
+    transition: all 0.3s ease; /* Transição suave */
+}
+
+/* Efeito quando campo está em foco (sendo usado) */
+form input[type="text"]:focus,
+form textarea:focus {
+    outline: none; /* Remove contorno padrão do browser */
+    border-color: #9900ff; /* Borda fica roxa */
+    box-shadow: 0 0 20px rgba(153, 0, 255, 0.5); /* Brilho roxo */
+    transform: scale(1.02); /* Aumenta levemente */
+}
+
+/* =================================================================
+   TEXTAREA ESPECÍFICO
+   Configurações apenas para área de texto
+   ================================================================= */
+form textarea {
+    min-height: 120px; /* Altura mínima */
+    resize: vertical; /* Permite redimensionar apenas verticalmente */
+}
+
+/* =================================================================
+   BOTÃO DO FORMULÁRIO
+   Estilo do botão de envio - igual aos links de navegação
+   ================================================================= */
+form button {
+    text-decoration: none; /* Remove sublinhado */
+    color: #00ff00; /* Verde neon */
+    font-weight: bold; /* Texto em negrito */
+    padding: 12px 25px; /* Espaço interno igual aos links */
+    background: rgba(26, 0, 51, 0.8); /* Fundo mais opaco - igual aos links */
+    border-radius: 25px; /* Bordas muito arredondadas - igual aos links */
+    border: 2px solid rgba(0, 255, 0, 0.5); /* Borda verde transparente - igual aos links */
+    transition: all 0.3s ease; /* Transição suave em todas propriedades */
+    display: inline-block; /* Permite aplicar padding e margin */
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); /* Brilho verde - igual aos links */
+    backdrop-filter: blur(5px); /* Desfoque para destacar do fundo - igual aos links */
+    cursor: pointer; /* Cursor de mão */
+    font-size: 1em; /* Tamanho normal igual aos links */
+    text-transform: none; /* Remove maiúsculas */
+    margin: 20px auto 0 auto; /* Centraliza horizontalmente com margem superior */
+    min-width: auto; /* Remove largura mínima */
+}
+
+/* Efeito hover no botão - igual aos links */
+form button:hover {
+    background: rgba(153, 0, 255, 0.4); /* Fundo roxo transparente - igual aos links */
+    border-color: #9900ff; /* Borda roxa - igual aos links */
+    color: #9900ff; /* Texto roxo - igual aos links */
+    text-shadow: 0 0 10px rgba(153, 0, 255, 0.8); /* Brilho roxo - igual aos links */
+    transform: translateY(-3px); /* Move para cima - igual aos links */
+    box-shadow: 0 5px 15px rgba(153, 0, 255, 0.4); /* Sombra roxa - igual aos links */
+}
+
+/* Efeito quando botão é clicado */
+form button:active {
+    transform: translateY(-1px); /* Move menos para cima */
+}
+
+/* =================================================================
+   ANIMAÇÕES
+   Definições de animações usadas na página
+   ================================================================= */
+
+/* Animação de entrada dos elementos */
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Invisível */
+        transform: translateY(30px); /* 30px abaixo */
+    }
+    to {
+        opacity: 1; /* Visível */
+        transform: translateY(0); /* Posição normal */
+    }
+}
+
+/* Animação de brilho pulsante */
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); } /* Brilho normal */
+    50% { text-shadow: 0 0 20px rgba(0, 255, 0, 0.8), 0 0 30px rgba(153, 0, 255, 0.6); } /* Brilho intenso */
+}
+
+/* =================================================================
+   APLICAÇÃO DAS ANIMAÇÕES
+   Onde as animações são aplicadas
+   ================================================================= */
+
+/* Animação de entrada nos itens do menu */
+.menu-item {
+    animation: fadeInUp 0.6s ease forwards; /* Executa uma vez */
+}
+
+/* Delay diferente para cada item (efeito cascata) */
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.2s; }
+.menu-item:nth-child(3) { animation-delay: 0.3s; }
+
+/* Animação de brilho APENAS no primeiro H2 ("Nosso Cardápio") */
+section:first-child h2 {
+    animation: glow 2s ease-in-out infinite alternate; /* Pulsa continuamente */
+}
+
+/* Remove animação do segundo H2 ("Sugira um Novo Lanche!") */
+section:last-child h2 {
+    animation: none; /* Remove animação */
+}
+
+/* =================================================================
+   RESPONSIVIDADE - MOBILE
+   Ajustes para telas menores (celulares e tablets)
+   ================================================================= */
+@media (max-width: 768px) {
+    /* Container principal menor */
+    main {
+        width: 95%; /* Quase toda a tela */
+        padding: 20px; /* Menos espaço interno */
+        margin: 10px auto; /* Menos margem */
+    }
+    
+    /* Título menor */
+    header h1 {
+        font-size: 2.2em; /* Reduz tamanho */
+    }
+    
+    /* Links de navegação em coluna */
+    header nav a {
+        display: block; /* Um abaixo do outro */
+        margin: 10px 0; /* Margem vertical */
+    }
+    
+    /* Formulário menor */
+    form {
+        padding: 20px; /* Menos espaço interno */
+    }
+    
+    /* Binários menores no mobile */
+    body::before {
+        font-size: 8px; /* Fonte menor */
+    }
+}

@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>DevBurger</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
     <header>
-        <h1>🍔 Bem-vindo à DevBurger! 🍔</h1>
+        <h1>Bem-vindo à DevBurger!</h1>
         <nav>
-            <a href="/contato">Fale Conosco</a> | 
+            <a href="/contato">Fale Conosco</a>
             <a href="/api/lanches">API de Lanches (JSON)</a>
         </nav>
     </header>
@@ -16,31 +17,31 @@
     <main>
         <section>
             <h2>Nosso Cardápio</h2>
-            <div>
-              <h3>DevBurger Clássico</h3>
-              <p><strong>Ingredientes:</strong> Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial</p>
+            <div class="menu-item">
+                <h3>DevBurger Clássico</h3>
+                <p><strong>Ingredientes:</strong> Pão brioche, Carne 150g, Queijo cheddar, Alface americana, Tomate fresco, Molho especial</p>
             </div>
-            <div>
-              <h3>Burger de Bacon</h3>
-              <p><strong>Ingredientes:</strong> Pão australiano, Carne 180g, Queijo prato, Bacon crocante, Cebola caramelizada, Molho barbecue</p>
+            <div class="menu-item">
+                <h3>Burger de Bacon</h3>
+                <p><strong>Ingredientes:</strong> Pão australiano, Carne 180g, Queijo prato, Bacon crocante, Cebola caramelizada, Molho barbecue</p>
             </div>
-            <div>
-              <h3>Commit Veggie</h3>
-              <p><strong>Ingredientes:</strong> Pão integral, Burger de grão de bico, Queijo vegano, Rúcula, Tomate seco, Maionese de ervas</p>
+            <div class="menu-item">
+                <h3>Commit Veggie</h3>
+                <p><strong>Ingredientes:</strong> Pão integral, Burger de grão de bico, Queijo vegano, Rúcula, Tomate seco, Maionese de ervas</p>
             </div>
         </section>
 
         <hr>
 
         <section>
-            <h2>Sugira um Novo Lanche!</h2>
+            <h2> Sugira um Novo Lanche!</h2>
             <form action="/sugestao" method="GET">
                 <label for="nome">Nome do Lanche:</label>
-                <input type="text" id="nome" name="nome" required>
-                <br><br>
+                <input type="text" id="nome" name="nome" required placeholder="Digite o nome do seu lanche">
+                
                 <label for="ingredientes">Ingredientes:</label>
-                <textarea id="ingredientes" name="ingredientes" required></textarea>
-                <br><br>
+                <textarea id="ingredientes" name="ingredientes" required placeholder="Liste os ingredientes do seu lanche"></textarea>
+                
                 <button type="submit">Enviar Sugestão</button>
             </form>
         </section>
