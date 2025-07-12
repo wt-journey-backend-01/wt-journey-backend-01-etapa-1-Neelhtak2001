@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - DevBurger</title>
+</head>
+<body>
+
+    <header>
+        <h1>Fale Conosco</h1>
+        <nav>
+            <a href="/">Voltar para o Cardápio</a>
+        </nav>
+    </header>
+
+    <main>
+        <p>Envie sua mensagem, crítica ou sugestão de evento!</p>
+
+        <form action="/contato" method="POST">
+            <div>
+                <label for="nome">Seu Nome:</label><br>
+                <input type="text" id="nome" name="nome" required>
+            </div>
+            <br>
+            <div>
+                <label for="email">Seu E-mail:</label><br>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <br>
+            <div>
+                <label for="assunto">Assunto:</label><br>
+                <input type="text" id="assunto" name="assunto" required>
+            </div>
+            <br>
+            <div>
+                <label for="mensagem">Sua Mensagem:</label><br>
+                <textarea id="mensagem" name="mensagem" rows="5" cols="50" required></textarea>
+            </div>
+            <br>
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </main>
+
+</body>
+</html>
