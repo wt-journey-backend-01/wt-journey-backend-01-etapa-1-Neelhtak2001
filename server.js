@@ -11,12 +11,12 @@ app.use(express.json());
 
 //-------------------------lanches-----------------------// Rota para retornar a lista de lanches
 // Usamos fs para ler o arquivo JSON e enviar os dados como resposta
-app.get('/api/lanches', (req, res) => {
+app.get('/api/lanches', async (req, res) => {
     try {
-        const fs = require('fs');
+        const fs = require('fs').promises;
         const path = require('path');
         const caminho = path.join(__dirname, 'public', 'data', 'lanches.json');
-        const dados = fs.readFileSync(caminho, 'utf8');
+        const dados = await fs.readFile(caminho, 'utf8');
         const lanches = JSON.parse(dados);
         
         res.status(200).json(lanches);
